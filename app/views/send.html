@@ -1,0 +1,28 @@
+<h1>Send Money</h1>
+<form name="sendMoneyFrom" ng-submit="submit()">
+	<div class = "form_section">
+		To: <input name='email' ng-model='payment.email' ng-change='isEmail()' required>
+		<img src="image/right.gif" ng-show = 'if_right' style='width:20px'/>
+	</div>
+	<div class = "form_section">
+		Amount: <input name='amount' ng-model='payment.amount' required>
+		<select ng-model="payment.code" ng-options="c for c in code" ng-change='toMoney(true)' >
+		</select>
+	</div>
+	<div class = "form_section">
+		Message (Optional): <br>
+		<textarea name='message' ng-model='payment.message'></textarea>
+	</div>
+	<h4 style = "margin-left: 10px;">What is the payment for?</h4>
+	<div class = "form_section">
+		<input value="family" ng-model="payment.goal" type="radio">I'm sending money for freinds or family.<br>
+        <input value="service" ng-model="payment.goal" type="radio">I'm paying for goods or services.
+	</div>
+	<div class = "form_footer">
+		<button class = 'foot_button' ng-click = "clear()">Clear</button>
+		<button class = 'foot_button' ng-click = "sendPayment()">Next</button>
+	</div>
+</form>
+<div id = 'loading' ng-show = 'if_loading'>
+	<img id = 'loading_img' src="image/loading.gif"/>
+</div>

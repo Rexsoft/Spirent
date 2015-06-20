@@ -1,0 +1,13 @@
+<h1>Transition History</h1>
+<div id = "table_container">
+	<table id = "history_table">
+		<tr ng-repeat="item in items">
+			<td>{{item.time}}</td>
+			<td align="middle">{{item.name}}</td>
+			<td align="right" >{{item.amount}}</td>
+		</tr>
+	</table>
+</div>
+<div class = "form_footer">
+	<button class = 'foot_button' ng-click="back()">Back</button>
+</div>
